@@ -1,16 +1,21 @@
+import React, { useState, useEffect } from 'react'
 import Routes from './Routes/Route'
-//import { useLocation } from 'react-router-dom';
 
 function App() {
 
-	//let location = useLocation()
+	let [isLoggedIn, setIsLoggedIn] = useState(false);
+
+	useEffect(() => {
+		if (localStorage.getItem('token')) {
+			setIsLoggedIn(true);
+		}
+	}, []);
+
 
 	return (
-		<>
-			{/*<Header location={location}/>*/}
-			<Routes />
-		</>
+		<Routes isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 	)
+
 }
 
 export default App
