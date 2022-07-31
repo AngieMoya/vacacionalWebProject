@@ -226,3 +226,45 @@ section,
     font-size: .9rem;
     font-weight: 400;
 }
+
+select, textarea {
+    outline: none;
+    border-radius: 4px;
+    padding: 0.7rem;
+    font-size: .9rem;
+    background: var(--white);
+    border: 1px solid #eef;
+}
+
+.gridTwoColumns {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.labelForm {
+    text-align: left;
+    font-weight: 500;
+    font-size: .8rem;
+}
+
+input {
+    width: 100%;
+}
+
+#policyText {
+    color: #ccc;
+    font-size: .9rem;
+    margin: .5rem 0;
+    display: block;
+    text-align: justify;
+}
+
+.p-btn2 {
+    background: transparent;
+    color: var(--blue);
+    text-decoration: none;
+}
+
+.p-btn2:hover {
+    color: var(--white);
+}

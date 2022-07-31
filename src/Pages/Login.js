@@ -7,7 +7,7 @@ function Login() {
 
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
-    let [error, setError] = useState(false);
+    let [error, setError] = useState('');
     let [success, setSuccess] = useState(false);
 
     useEffect(() => {
@@ -17,10 +17,9 @@ function Login() {
     });
 
     function Submit() {
-        if (email.length === 0) return setError(true);
-        if (password.length === 0) return setError(true);
-
-        setError(false);
+        if (email.length === 0) return setError('Debe ingresar el correo electrónico.');
+        if (password.length === 0) return setError('Debe ingresar la contraseña.');
+        setError('');
         Axios.get(`https://w5vxmb3jjf.execute-api.us-east-2.amazonaws.com/dev/users?email="${email}"`)
             .then(res => {
                 if (res.data.status) {
@@ -33,8 +32,8 @@ function Login() {
                     } else {
                         setError("Contraseña incorrecta")
                     }
-                }else{
-                    setError("El usuario ingresado no existe");
+                } else {
+                    setError("El correo electrónico ingresado no se encuentra registrado.");
                 }
             })
             .catch(err => console.log(err));
@@ -50,13 +49,13 @@ function Login() {
                 </div>
                 <div className="form">
                     <div className="input-field">
-                        <input type="email" placeholder='Correo electrónico' value={email} onChange={e => setEmail(e.target.value)} />
+                        <input type="email" placeholder='Correo electrónico' value={email} onChange={e => setEmail(e.target.value)} required />
                     </div>
                     <div className="input-field">
-                        <input type="password" placeholder='Contraseña' value={password} onChange={e => setPassword(e.target.value)} />
+                        <input type="password" placeholder='Contraseña' value={password} onChange={e => setPassword(e.target.value)} required />
                     </div>
                     {
-                        error && <h3 style={{ color: '#cc0000', padding: '.5rem', width: '100%', borderRadius: '4px', fontSize: '.9rem' }}>{error}</h3>
+                        error !== '' && <h3 style={{ color: '#cc0000', padding: '.5rem', width: '100%', borderRadius: '4px', fontSize: '.9rem' }}>{error}</h3>
                     }
                     {
                         success && <h3 style={{ color: 'var(--white)', background: '#039555', padding: '.5rem', width: '100%', borderRadius: '4px', fontSize: '.9rem' }}>Ha ingresado correctamente</h3>

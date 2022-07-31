@@ -4,47 +4,26 @@ import { useLocation } from 'react-router-dom';
 
 
 function Header({ isLoggedIn }) {
-    
+
     let location = useLocation();
-    let optionsHeader;
+
+    let typeUser = localStorage.getItem('token') ? JSON.parse(localStorage.getItem('token')).type : null;
+
+    let optionsHeader = [];
     if (isLoggedIn) {
-        optionsHeader = [
-            {
-                name: 'Inicio',
-                url: '/'
-            },
-            {
-                name: 'Ofertas',
-                url: '/offers'
-            },
-            {
-                name: 'Cerrar sesión',
-                url: '/logout'
-            },
-        ]
+        optionsHeader.push({ name: 'Inicio', url: '/' });
+        if (typeUser !== 'enterprise') optionsHeader.push({ name: 'Ofertas', url: '/offers' });
+        if (typeUser === 'recruiter') optionsHeader.push({ name: 'Crear ofertas', url: '/create-offers' });
+        if (typeUser === 'enterprise') optionsHeader.push({ name: 'Registrar reclutador', url: '/register-recruiter' });
+        optionsHeader.push({ name: 'Cerrar sesión', url: '/logout' });
     } else {
-        optionsHeader = [
-            {
-                name: 'Inicio',
-                url: '/'
-            },
-            {
-                name: 'Ofertas',
-                url: '/offers'
-            },
-            {
-                name: 'Iniciar sesión',
-                url: '/login'
-            },
-            {
-                name: 'Regístrate',
-                url: '/register'
-            },
-        ]
+        optionsHeader.push(
+            { name: 'Inicio', url: '/' },
+            { name: 'Ofertas', url: '/offers' },
+            { name: 'Iniciar sesión', url: '/login' },
+            { name: 'Registrarse', url: '/register' }
+        );
     }
-    
-
-
 
     return (
         <header>
