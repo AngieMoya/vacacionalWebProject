@@ -1,0 +1,129 @@
+.cont-form{
+    //min-height: calc(100vh - 6.25rem);
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+}
+.cont-form section{
+    width: 1041px;
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #022C64;
+    border-radius: 22px;
+    background-color: #fff;
+    align-items: flex-start;
+    justify-content:flex-start;
+    padding: 40px;
+}
+
+.cont-form section > *{
+    margin-bottom: 20px;
+
+}
+
+.offersInfo{
+    margin: 80px 0px 40px 0px;
+}
+
+.offersInfo h2,
+.offersDetails h2{
+    font-size: 40px;
+    color: #022C64;
+}
+
+.offersInfo div{
+    display: flex;
+}
+
+.offersInfo div input,
+.offersInfo div textarea{
+    margin-right: 20px;
+}
+
+.offersInfo input,
+.offersInfo select{
+    height: 50px;
+    width: 400px;
+    border-radius: 22px;
+    border: 1px solid;
+    color: #8492A6;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.offersInfo textarea{
+    width: 400px;
+    border-radius: 22px;
+    color: #8492A6;
+    border: 1px solid;
+    font-size: 18px;
+}
+
+.offersDetails{
+    margin-bottom: 60px;
+}
+
+::placeholder{
+    color: #8492A6;
+}
+
+.detailsField{
+    display: flex;
+    flex-direction: column;
+}
+
+.detailsField input,
+.detailsField select{
+    border-radius: 22px;
+    color: #8492A6;
+    border: 1px solid;
+    font-size: 18px;
+    height: 50px;
+    width: 280px;
+    margin:0px 10px 20px 0px;
+    padding: 10px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 60px;
+}
+
+.createButton{
+    border-style: none;
+    background-color: #0096C7;
+    color: #fff;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 22px;
+    width: 120px;
+    margin-right: 10px;
+}
+
+.cancelButton{
+    border-style: none;
+    border: 2px solid #022C64;
+    border-radius: 22px;
+    background-color: #fff;
+    color: #022C64;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 22px;
+    width: 120px;
+    text-align: center;
+}
+
+.cancelButton:hover{
+    background-color: #0096C7;
+    color: #fff;
+    border: 2px solid #0096C7;
+}
+
+
+
+
+
